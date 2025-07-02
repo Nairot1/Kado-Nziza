@@ -1,0 +1,1497 @@
+                            -Kado Nziza Website-
+
+<!-- Include in <head> -->
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>About Us Modal with Tabs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Kado Nziza About</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+#searchBox {
+      width: 100%;
+      max-width: 400px;
+      padding: 8px 12px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .filter-buttons {
+      margin-bottom: 15px;
+    }
+
+    .filter-buttons button {
+      margin-right: 8px;
+      margin-bottom: 8px;
+      padding: 8px 15px;
+      cursor: pointer;
+      border: 1px solid #007bff;
+      background-color: white;
+      color: #007bff;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background-color: #007bff;
+      color: white;
+    }
+    .car-box {
+      display: none;
+      width: 200px;
+      margin: 15px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .car-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Hidden class for filtering */
+    .hidden {
+      display: none !important;
+    }
+
+    .modal, .fullscreen-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 90%;
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: red;
+    }
+
+    .slider {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+    }
+
+    .slider img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+      border: 2px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .slider img:hover {
+      border-color: #007bff;
+    }
+
+    .specs {
+      font-size: 14px;
+    }
+
+    .fullscreen-img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+
+    #sundayBanner {
+    display: none;
+    position: fixed;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    background: #ff3333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    z-index: 9999;
+    transition: top 0.6s ease;
+  }
+  body.banner-visible {
+    padding-top: 60px; /* Adjust according to banner height */
+  }
+   body {
+      font-family:'Poppins', sans-serif; 
+
+    }
+  :root {
+    --bg-color: #fff;
+    --text-color: #000;
+    --card-bg: #f9f9f9;
+    --btn-bg: #007bff;
+    --btn-text: #fff;
+  }
+   #cars {
+    transition: opacity 0.3s ease;
+  }
+
+  #cars[style*="display: none"] {
+    opacity: 0;
+  }
+
+  #cars[style*="display: block"] {
+    opacity: 1;
+  }
+   h3, p {
+    margin: 5px 0;
+  }
+   body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+       background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    }
+.car-card {
+      display: none;
+      background-color: grey;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      transition: transform 0.3s ease;
+    }
+      .car-card:hover {
+      transform: translateY(-5px);
+    }
+    .car-card img {
+      width: 40%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .book-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #1abc9c;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .book-btn:hover {
+      background: #16a085;
+    }
+     form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    input, select, button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #1abc9c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #16a085;
+    }
+     .contact-info {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      font-size: 16px;
+      color: #34495e;
+    }
+    .contact-info i {
+      color: #1abc9c;
+      margin-right: 12px;
+      font-size: 20px;
+    }
+    .contact-info a {
+      color: #34495e;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-info a:hover {
+      color: #1abc9c;
+      text-decoration: underline;
+    }
+   
+ #themeToggle {
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 5px;
+
+}
+.buy-now-button {
+      display: inline-flex;
+      align-items: center;
+      background-color: #FFA500; 
+      color: #222;
+      font-weight: bold;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+ .tab-text.active {
+    color: #16a34a; /* Tailwind green-600 */
+    font-weight: 600;
+  }
+    .buy-now-button i {
+      margin-right: 10px;
+    }
+
+    .buy-now-button:hover {
+      background-color: #e69500;
+    }
+ .fade-in {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+  }
+
+  nav {
+    background-color: #2c3e50;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.9);
+  }
+
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: #ff9900;
+  }
+
+  #home {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url('https://i.imgur.com/HeDGSHg.jpg?auto=format&fit=crop&w=1950&q=80') no-repeat center center / cover;
+    color: white;
+    padding: 100px 30px 80px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #home h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  #home p {
+    font-size: 18px;
+    margin: 0 auto 40px;
+    max-width: 650px;
+  }
+
+  .home-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .home-buttons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: #ff9900;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .home-buttons a:hover {
+    background-color: #e68a00;
+  }
+
+  .section {
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  .section h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  .whatsapp-button img {
+    width: 56px;
+    height: 56px;
+    transition: transform 0.3s;
+  }
+
+  .whatsapp-button img:hover {
+    transform: scale(1.1);
+  }
+  footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 14px;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 768px) {
+    #home h2 {
+      font-size: 28px;
+    }
+
+    #home p {
+      font-size: 16px;
+    }
+
+    .home-buttons a {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+
+    nav {
+      flex-wrap: wrap;
+    
+  }
+</style>
+
+<body>
+<header class="bg-black py-4 px-6 shadow-md">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo and Name -->
+    <div class="flex items-center gap-3 text-yellow-400 text-3xl font-extrabold tracking-wider font-[Poppins,sans-serif]">
+      <i class="fas fa-car"></i>
+      <span>KADO nziza</span>
+    </div>
+</div>
+</header>
+ <!-- Navbar -->
+  <nav id="mainNav" class=" background-color: #2c3e50 flex justify-center w-half  shadow z-50">
+    <a href="#home"><i class="fas fa-home"></i> Home</a>
+  </nav>
+  <!-- Home Section -->
+  <section id="home">
+    <h2><strong>Welcome to <span class="text-yellow-400 font-extrabold">Kado Nziza</span> Car Trading Ltd </strong></h2>
+    <p>Experience top-quality car solutions — whether you're renting, buying locally, or importing your dream car from abroad.</p>
+    <div class="home-buttons">
+      <a href="#order"><i class="fas fa-calendar-check"></i> Book Now</a>
+      <a href="#About"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="#contacts"><i class="fas fa-phone"></i> Contacts Info</a>
+      <a href="#location"><i class="fas fa-map-marker-alt"></i> Locate Us</a>
+    </div>
+  </section>
+<!-- Background Hero Section with Button -->
+<section id="hero-cars" style="
+  background-image: url('https://i.imgur.com/pqSc84Q.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+">
+  <div style="
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 12px;
+  ">
+    <h1 style="
+      color: white;
+      font-size: 36px;
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    ">Explore Our Cars</h1>
+
+    <button onclick="toggleCarsSection(true)" style="
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #ff9900;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    " onmouseover="this.style.backgroundColor='#e68900'" onmouseout="this.style.backgroundColor='#ff9900'">
+      Show Available Cars
+    </button>
+  </div>
+</section>
+  <!-- Placeholder Sections -->
+ <section id="cars" class="section" style="display: none;">
+  
+  <input type="text" id="searchBox" placeholder="Search cars by name..." />
+
+  <div class="filter-buttons">
+    <button data-make="all" class="active">All</button>
+    <button data-make="Hyundai">Hyundai</button>
+    <button data-make="KIA">KIA</button>
+    <button data-make="Toyota">Toyota</button>
+    <button data-make="Mercedes Benz">Mercedes Benz</button>
+  </div>
+<!-- CAR BOXES -->
+  <div class="car-box" data-make="Hyundai" onclick="openCarModal('Hyundai Sonata')">Hyundai Sonata</div>
+  <div class="car-box" data-make="Hyundai" onclick="openCarModal('Sonata 2013')">Sonata 2013</div>
+  <div class="car-box" data-make="Hyundai" onclick="openCarModal('Hyundai Glandeur')">Hyundai Glandeur</div>
+  <div class="car-box" data-make="Hyundai" onclick="openCarModal('Hyundai Tucson 2014')">Hyundai Tucson 2014</div>
+  <div class="car-box" data-make="KIA" onclick="openCarModal('KIA K7 Cadenza')">KIA K7 Cadenza</div>
+  <div class="car-box" data-make="KIA" onclick="openCarModal('KIA Niro')">KIA Niro</div>
+  <div class="car-box" data-make="KIA" onclick="openCarModal('KIA Sportage 2014')">KIA Sportage 2014</div>
+  <div class="car-box" data-make="KIA" onclick="openCarModal('KIA Sportage 2016')">KIA Sportage 2016</div>
+  <div class="car-box" data-make="KIA" onclick="openCarModal('KIA Sorento 2012')">KIA Sorento 2012</div>
+  <div class="car-box" data-make="Toyota" onclick="openCarModal('Toyota Prius 2014')">Toyota Prius 2014</div>
+  <div class="car-box" data-make="Toyota" onclick="openCarModal('Toyota RAV4 2022')">Toyota RAV4 2022</div>
+  <div class="car-box" data-make="Toyota" onclick="openCarModal('Toyota Prado Land Cruiser TXL')">Toyota Prado Land Cruiser TXL</div>
+  <div class="car-box" data-make="Toyota" onclick="openCarModal('Toyota Coaster')">Toyota Coaster</div>
+  <div class="car-box" data-make="Mercedes Benz" onclick="openCarModal('Mercedes Benz c63 AMG')">Mercedes Benz c63 AMG</div>
+  <div class="car-box" data-make="Mercedes Benz" onclick="openCarModal('Mercedes Benz GLE 350 4MATIC')">Mercedes Benz GLE 350 4MATIC</div>
+
+  <!-- MODAL -->
+  <div id="carModal" class="modal" onclick="if(event.target===this) closeCarModal()">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeCarModal()">&times;</span>
+      <h2 id="carTitle">Car Name</h2>
+      <div class="slider" id="imageSlider"></div>
+      <div class="specs" id="carSpecs">
+        <!-- Specifications will be inserted here -->
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center;">
+        <button onclick="goToRentForm()" style="padding: 10px 20px; background: green; color: white; border: none; border-radius: 8px; cursor: pointer;">Rent</button>
+        <button onclick="goToBuyForm()" style="padding: 10px 20px; background: blue; color: white; border: none; border-radius: 8px; cursor: pointer;">Buy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN IMAGE MODAL -->
+  <div id="fullscreenModal" class="fullscreen-modal" onclick="this.style.display='none'">
+    <img id="fullscreenImg" class="fullscreen-img" src="" alt="Full view" />
+  </div>    
+    <div id="noCarsMessage" style="text-align:center; margin-top:20px; font-size:18px; color:gray;">
+  Please select a car make or search above to view available cars.
+</div>    
+<div>
+<button onclick="toggleCarsSection(false)" style="margin-top: 20px;">Close</button> 
+    </div>
+</section>
+ <section id="order" class="section" style="background-color: #eef1f5;">  <body class="bg-gray-100 font-[Poppins,sans-serif]">
+
+
+     <section
+    class="relative bg-cover bg-center text-white"
+    style="background-image: url('https://i.imgur.com/tZRUs0e.jpg'); height: 100vh;"
+  >
+    <!-- Overlay for readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-32">
+      <h1 class="text-5xl font-bold leading-tight">
+        Import Your <span class="text-yellow-600 font-extrabold">DREAM CAR</span> With Ease
+      </h1>
+      <p class="mt-4 text-lg text-gray-200">
+       Reliable Car Import Services – Just for You. <br />
+       From Overseas to Your Doorstep.
+      </p>
+      <a
+      href="#"
+      onclick="document.getElementById('aboutModal').classList.remove('hidden')"
+      class="inline-block bg-green-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-yellow-700 transition"
+    >
+      Order Now →
+    </a>
+  </div>
+
+  <!-- Modal -->
+ <div
+    id="aboutModal"
+    class="fixed inset-0 z-50 hidden backdrop-blur-sm bg-black/40 flex items-center justify-center p-4"
+  >
+    <div
+      class="bg-white rounded-xl shadow-xl p-8 max-w-4xl w-full relative max-h-[90vh] overflow-y-auto"
+    >
+      <!-- Tabs -->
+      <div class="flex space-x-6 text-lg font-medium mb-6 pb-4 border-b border-gray-300">
+        <span
+          class="tab-text text-green-600 cursor-pointer"
+          onclick="openTab('book')"
+          > <strong>Order Form</strong> </span
+        >
+      </div>
+
+      <!-- Tab Contents -->
+
+      <!-- Overview Tab -->
+      <div id="book" class="tab-content" style="color: black">
+        <h3 style="text-align:center;">Order a Car from Abroad</h3>
+  <p style="text-align:center;">Fill in the form below to request a car importation. We'll contact you shortly with available options and pricing.</p>
+
+  <form action="https://formsubmit.co/kadosnziza@gmail.com" method="POST" style="max-width: 600px; margin: 30px auto; background: grey; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.9);" onsubmit="showConfirmation(event)">
+    <!-- Hidden input to disable CAPTCHA and redirect -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="#thanks">
+
+    <!-- Personal Info -->
+    <div style="margin-bottom: 20px;">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="Full Name" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="Email" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label for="phone">Phone Number (WhatsApp Preferred)</label>
+      <input type="tel" id="phone" name="Phone Number" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+    </div>
+
+    <!-- Car Info -->
+    <div style="margin-bottom: 20px;">
+      <label for="carMake">Car Make & Model</label>
+      <input type="text" id="carMake" name="Car Make and Model" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label for="carType">Car Type</label>
+      <select id="carType" name="Car Type" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+        <option value="" disabled selected>Select type</option>
+        <option>SUV</option>
+        <option>Sedane</option>
+        <option>Pickup</option>
+        <option>Truck</option>
+        <option>Van</option>
+        <option>Bus</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label for="country">Preferred Country to Import From</label>
+      <select id="country" name="Import Country" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+        <option value="" disabled selected>Select country</option>
+        <option>Japan</option>
+        <option>UK</option>
+        <option>Germany</option>
+        <option>USA</option>
+        <option>South Korea</option>
+        <option>United Arab Emirates</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label for="delivery">Preferred Delivery Method</label>
+      <select id="delivery" name="Delivery Method" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+        <option value="" disabled selected>Select method</option>
+        <option>Port Pickup (Dar es Salaam / Mombasa)</option>
+        <option>Door-to-Door Delivery (Rwanda)</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="Additional Notes" rows="4" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+    </div>
+
+    <!-- Submit -->
+    <div style="text-align: center;">
+      <button type="submit" style="background-color: #ff9900; color: white; border: none; padding: 14px 30px; border-radius: 8px; font-size: 16px; cursor: pointer;">
+        Submit Request
+      </button>
+    </div>
+  </form>
+
+  <!-- Confirmation Message -->
+  <div id="thanks" style="display:none; text-align:center; margin-top:30px;">
+    <h4 style="color: green;">✅ Your request has been submitted!</h4>
+    <p>We will get back to you shortly via email or WhatsApp.</p>
+  </div>
+
+      </div>
+      <!-- Close Button -->
+      <div class="mt-6 text-right">
+        <button
+          onclick="document.getElementById('aboutModal').classList.add('hidden')"
+          class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</section>
+<section id="About" class="section">
+  <body class="bg-gray-100 font-[Poppins,sans-serif]">
+<body class="bg-gray-100">
+
+     <section
+    class="relative bg-cover bg-center text-white"
+    style="background-image: url('https://i.imgur.com/1zRqcMB.jpg'); height: 100vh;"
+  >
+    <!-- Overlay for readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-32">
+      <h1 class="text-5xl font-bold leading-tight">
+        Why <span class="text-green-600 font-extrabold">WORK</span> With Us?
+      </h1>
+      <p class="mt-4 text-lg text-gray-200">
+        We're a different kind of car dealership company. <br />
+        Find out more.
+      </p>
+      <a
+      href="#"
+      onclick="document.getElementById('aboutModal2').classList.remove('hidden')"
+      class="inline-block bg-green-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-yellow-700 transition"
+    >
+      About Us →
+    </a>
+  </div>
+
+  <!-- Modal -->
+ <div
+    id="aboutModal2"
+    class="fixed inset-0 z-50 hidden backdrop-blur-sm bg-black/40 flex items-center justify-center p-4"
+  >
+    <div
+      class="bg-white rounded-xl shadow-xl p-8 max-w-4xl w-full relative max-h-[90vh] overflow-y-auto"
+    >
+      <!-- Tabs -->
+      <div class="flex space-x-6 text-lg font-medium mb-6 pb-4 border-b border-gray-300">
+        <span
+          class="tab-text text-green-600 cursor-pointer"
+          onclick="openTab('Our Services')"
+          > <strong>Our Services</strong> </span
+        >
+        <span
+          class="tab-text text-gray-600 hover:text-green-600 cursor-pointer transition"
+          onclick="openTab('mission')"
+          > <strong>Our Mission</strong> </span
+        >
+      </div>
+
+      <!-- Tab Contents -->
+
+      <!-- Overview Tab -->
+      <div id="Our Services" class="tab-content">
+        <h2 class="text-3xl font-bold mb-4 text-gray-900">Our Services</h2>
+        <p class="text-gray-700 mb-8">
+          We deliver, sell, and rent vehicles tailored to your needs — across borders or locally in Rwanda.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Import & Delivery -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-md text-center"
+          >
+            <div class="text-5xl text-blue-600 mb-4">
+              <i class="fas fa-truck-plane"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Car Import & Delivery</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              We help clients import vehicles from overseas markets like Japan, the USA, Korea or Europe. Our team handles everything from sourcing to delivery, ensuring a smooth, reliable experience.
+            </p>
+          </div>
+
+          <!-- Local Sales -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-md text-center"
+          >
+            <div class="text-5xl text-green-600 mb-4">
+              <i class="fas fa-car"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Local Car Sales</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Browse our range of cars already available in Rwanda. All vehicles are inspected and ready to drive. We offer dependable cars for personal or business use.
+            </p>
+          </div>
+
+          <!-- Rentals -->
+          <div
+            class="bg-white p-6 rounded-xl shadow-md text-center"
+          >
+            <div class="text-5xl text-yellow-500 mb-4">
+              <i class="fas fa-key"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Car Rentals</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Need a ride for a few days? Our rental service offers well-maintained vehicles for short-term and long-term use — ideal for family trips, business travel, or special events.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Mission Tab -->
+      <div id="mission" class="tab-content hidden">
+        <h2 class="text-3xl font-bold mb-4 text-gray-900">Our Mission</h2>
+        <p class="text-gray-700">
+          At Kado Nziza, our mission is to simplify the car buying, renting, and importing experience in Rwanda by delivering trust, transparency, and convenience.
+        </p>
+      </div>
+
+     
+      <!-- Close Button -->
+      <div class="mt-6 text-right">
+        <button
+          onclick="document.getElementById('aboutModal2').classList.add('hidden')"
+          class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</section>
+ <section id="contacts" class="section">
+     <p class="contact-info"><i class="fas fa-envelope"></i><a href="mailto:kadosnziza@gmail.com">kadosnziza@gmail.com</a></p>
+      <p class="contact-info"><i class="fas fa-phone"></i><a href="tel:+250788883164">+250788883164</a></p>
+      <p class="contact-info"><i class="text-[#E4405F] hover:text-pink-600 text-xl fab fa-instagram"></i><a href="https://instagram.com/kadosnziza_cartrading" target="_blank">@kadosnziza_cartrading</a></p>
+      <p class="contact-info"><i class="fas fa-map-marker-alt"></i>Kigali, Rwanda Near by Remera Amahoro Stadium and Zigama CSS Military bank
+  on road KG107St Thats where you will find us</p>
+    </section>
+ <section id="location" class="section">
+      <p>Visit us at our office in Kigali, Rwanda. Use the map below to get directions:</p>
+      <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.788449594359!2d30.114646699999998!3d-1.9588956000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca7b067d3ff5d%3A0x8958891ae189df83!2sKado%20Nziza%20Car%20Trading%20Ltd!5e0!3m2!1sen!2srw!4v1719083400000!5m2!1sen!2srw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+    <div id="booking-form-wrapper" style="display: none; padding: 20px;">
+    <h2>Book a Car</h2>
+    
+     <form id="booking-form" action="https://formspree.io/f/xzzgkqrk" method="POST" style="max-width: 600px; margin: 0 auto; background: grey; padding: 30px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.9);">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="car">Select Car:</label>
+      <select id="car" name="car" required>
+        <option value="">-- Choose a car --</option>
+        <option value="Hyundai Sonata 2012"> <option>Hyundai Sonata 2012</option>
+        <option value="Hyundai Sonata 2013">Hyundai Sonata 2013</option>
+        <option value="Hyundai Glandeur">Hyundai Glandeur</option>
+ <option value="Hyundai Tucson 2014">Hyundai Tucson 2014</option>        
+<option value="KIA K5">KIA K5</option>
+        <option value="KIA K7">KIA K7</option>
+        <option value="KIA Niro">KIA Niro</option>
+        <option value="KIA Sportage 2014">KIA Sportage 2014</option>
+        <option value="KIA Sportage">KIA Sportage</option>
+        <option value="KIA Sorento">KIA Sorento</option>
+        <option value="Prius">Prius</option>
+        <option value="Toyota RAV4 HYBRID 2022">Toyota RAV4 HYBRID 2022</option>
+        <option value="Toyota Prado Land Cruiser TXL 2020">Toyota Prado Land Cruiser TXL 2020</option>
+        <option value="Toyota Coaster 2012">Toyota Coaster 2012</option>
+        <option value="Mercedes Benz c63 AMG">Mercedes Benz c63 AMG</option>
+        <option value="Mercedes Benz GLE 350e 4MATIC">Mercedes Benz GLE 350e 4MATIC</option>
+
+        
+        </select>
+
+      <label for="start-date">Rental Start Date:</label>
+      <input type="date" id="start-date" name="start-date" required />
+
+      <label for="end-date">Rental End Date:</label>
+      <input type="date" id="end-date" name="end-date" required />
+
+      <button type="submit">Submit Booking</button>
+      <button type="button" onclick="closeBooking()">cancel</button>
+    </form>
+  </div>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-button" href="https://wa.me/250788883164" target="_blank" title="Chat with us on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" />
+  </a>
+  <!-- Footer -->
+  <footer class="text-white font-[Poppins,sans-serif] py-10 px-6 border-t border-gray-300 shadow-2xl" style="background-color: #2c3e50; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Working Hours Section -->
+    <div class="flex justify-center"></div>
+<div id="working-hours" class="text-white mt-8 p-4 bg-green-950 rounded-lg shadow-lg">
+  <h3 class="text-2xl font-semibold mb-3 text-green-500">Working Hours</h3>
+  <ul class="mb-3 space-y-1 text-sm text-gray-300">
+    <li>Monday to Saturday: 08:00 AM - 06:00 PM</li>
+    <li>Closed on Sunday</li>
+  </ul>
+  <p id="status" class="flex justify-center items-center gap-2 font-bold text-lg">
+    <!-- Dynamic status here -->
+  </p>
+</div>
+
+
+  </div>
+
+  <div class="mt-10 text-center text-gray-300 font-extrabold text-sm select-none">
+    &copy; <strong>2025 Kado Nziza Car Trading Ltd. All rights reserved.</strong>
+  </div>
+</footer>
+<div id="sundayBanner" style="display:none; position:fixed; top:0; left:0; width:100%; background:#ff3333; color:white; text-align:center; padding:12px; font-weight:bold; z-index:9999;">
+  We're closed today. Have a nice Sunday! See you on Monday. Thank you!
+</div>
+ <script>
+const carData = {
+      "Hyundai Sonata": {
+        images: [
+          "https://i.imgur.com/p06VBt0.jpg",
+          "https://i.imgur.com/OVAf9hh.jpg",
+          "https://i.imgur.com/R9nxW62.jpg",
+          "https://i.imgur.com/t0Iy304.jpg",
+          "https://i.imgur.com/mMFLJXv.jpg"
+        ],
+        specs: {
+          year: 2012,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Sonata 2013": {
+        images: [
+          "https://i.imgur.com/1dK7wrc.jpg",
+          "https://i.imgur.com/7yYQZr6.jpg",
+          "https://i.imgur.com/kAyvY7a.jpg",
+          "https://i.imgur.com/4nZMi12.jpg",
+          "https://i.imgur.com/nc2MgGo.jpg",
+          "https://i.imgur.com/GFF75NN.jpg"
+        ],
+        specs: {
+          year: 2013,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Hyundai Glandeur": {
+        images: [
+          "https://i.imgur.com/BC8JXzU.jpg",
+          "https://i.imgur.com/dpkq2sj.jpg",
+          "https://i.imgur.com/GOsZ1IP.jpg",
+          "https://i.imgur.com/27RmOAB.jpg",
+          "https://i.imgur.com/VKOs7t4.jpg"
+        ],
+        specs: {
+          year: 2016,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Hyundai Tucson 2014": {
+        images: [
+          "https://i.imgur.com/kyczjXv.jpg",
+          "https://i.imgur.com/va4jxiY.jpg",
+          "https://i.imgur.com/ZkkoEqx.jpg",
+          "https://i.imgur.com/Etx5clg.jpg",
+          "https://i.imgur.com/ewO18Eg.jpg",
+          "https://i.imgur.com/95nCyyh.jpg"
+        ],
+        specs: {
+          year: 2014,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "KIA K7 Cadenza": {
+        images: [
+          "https://i.imgur.com/Wki58CC.jpg",
+          "https://i.imgur.com/XMJtImJ.jpg",
+          "https://i.imgur.com/ENuiouE.jpg",
+          "https://i.imgur.com/cPbfXmW.jpg",
+          "https://i.imgur.com/qUCJaTa.jpg",
+          "https://i.imgur.com/YGIY2fH.jpg"
+        ],
+        specs: {
+          year: 2015,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "KIA Niro": {
+        images: [
+          "https://i.imgur.com/wQSidGR.jpg",
+          "https://i.imgur.com/zHdL5gi.jpg",
+          "https://i.imgur.com/EN05wBw.jpg",
+          "https://i.imgur.com/9ZPpuI8.jpg",
+          "https://i.imgur.com/C5vBmzj.jpg"
+        ],
+        specs: {
+          year: 2020,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "KIA Sportage 2014": {
+        images: [
+          "https://i.imgur.com/4DIuUyX.jpg",
+          "https://i.imgur.com/YjwjGwT.jpg",
+          "https://i.imgur.com/mzZZlzt.jpg",
+          "https://i.imgur.com/6hVOtC8.jpg",
+          "https://i.imgur.com/SkO3Ro2.jpg"
+        ],
+        specs: {
+          year: 2014,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "KIA Sportage 2016": {
+        images: [
+          "https://i.imgur.com/m1Hkz1m.jpg",
+          "https://i.imgur.com/TpzV7SE.jpg",
+          "https://i.imgur.com/A3Ig3BT.jpg",
+          "https://i.imgur.com/mFbe3o4.jpg",
+          "https://i.imgur.com/97MImm5.jpg"
+        ],
+        specs: {
+          year: 2016,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "KIA Sorento 2012": {
+        images: [
+          "https://i.imgur.com/Sgh77FA.jpg",
+          "https://i.imgur.com/dsapSea.jpg",
+          "https://i.imgur.com/4qR6ax5.jpg",
+          "https://i.imgur.com/tW48EbT.jpg",
+          "https://i.imgur.com/9W5KisV.jpg"
+        ],
+        specs: {
+          year: 2012,
+          transmission: "Automatic",
+          fuel: "Petrol(Gasoline)",
+          seats: 5,
+          features: "Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Toyota Prius 2014": {
+        images: [
+          "https://i.imgur.com/eWOaaAq.jpg",
+          "https://i.imgur.com/hoAK4Y2.jpg",
+          "https://i.imgur.com/ireSO4E.jpg",
+          "https://i.imgur.com/MbZoGt0.jpg",
+          "https://i.imgur.com/wNrigNR.jpg"
+        ],
+        specs: {
+          year: 2014,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Toyota RAV4 2022": {
+        images: [
+          "https://i.imgur.com/Pdpisyu.jpg",
+          "https://i.imgur.com/yRIzhTY.jpg",
+          "https://i.imgur.com/xS1ASNn.jpg",
+          "https://i.imgur.com/1fjztww.jpg",
+          "https://i.imgur.com/UtqZxsU.jpg"
+        ],
+        specs: {
+          year: 2022,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Toyota Prado Land Cruiser TXL": {
+        images: [
+          "https://i.imgur.com/5BVCGch.jpg",
+          "https://i.imgur.com/s8YexbV.jpg",
+          "https://i.imgur.com/JvDtzsx.jpg",
+          "https://i.imgur.com/tED1Av6.jpg",
+          "https://i.imgur.com/wEy1mdN.jpg"
+        ],
+        specs: {
+          year: 2020,
+          transmission: "Automatic",
+          fuel: "Diesel",
+          seats: 7,
+          features: "Keyless Entry, Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Toyota Coaster": {
+        images: [
+          "https://i.imgur.com/PTSacbu.jpg",
+          "https://i.imgur.com/1fhGUtA.jpg",
+          "https://i.imgur.com/EREl1Rr.jpg",
+          "https://i.imgur.com/4mPnxf8.jpg",
+          "https://i.imgur.com/uIgNi4l.jpg",
+          "https://i.imgur.com/W5HXvi5.jpg",
+          "https://i.imgur.com/gvc2Cvb.jpg"
+        ],
+        specs: {
+          year: 2012,
+          transmission: "Manual",
+          fuel: "Diesel",
+          seats: 32,
+          features: "Bluetooth, Dual-Zone Climate"
+        }
+      },
+      "Mercedes Benz c63 AMG": {
+        images: [
+          "https://i.imgur.com/um46vqE.jpg",
+          "https://i.imgur.com/wljbplQ.jpg",
+          "https://i.imgur.com/B6wLseN.jpg",
+          "https://i.imgur.com/5JfEeUo.jpg",
+          "https://i.imgur.com/YF2L3g8.jpg",
+          "https://i.imgur.com/nqyc3Am.jpg",
+          "https://i.imgur.com/soXErkj.jpg"
+        ],
+        specs: {
+          year: 2010,
+          transmission: "Automatic",
+          fuel: "Diesel",
+          seats: 5,
+          features: "Bluetooth, Cruise Control, Dual-Zone Climate"
+        }
+      },
+      "Mercedes Benz GLE 350 4MATIC": {
+        images: [
+          "https://i.imgur.com/DsQL0pn.jpg",
+          "https://i.imgur.com/fsAumHc.jpg",
+          "https://i.imgur.com/WUFi96B.jpg",
+          "https://i.imgur.com/8lrBmP5.jpg"
+        ],
+        specs: {
+          year: 2025,
+          transmission: "Automatic",
+          fuel: "Hybrid",
+          seats: 5,
+          features: "Bluetooth, Cruise Control, Dual-Zone Climate, Panoramic rooftop"
+        }
+      }
+    };
+
+ function openCarModal(carName) {
+      const modal = document.getElementById("carModal");
+      const slider = document.getElementById("imageSlider");
+      const title = document.getElementById("carTitle");
+      const specsDiv = document.getElementById("carSpecs");
+
+      title.textContent = carName;
+      slider.innerHTML = "";
+      const car = carData[carName];
+
+      if (!car) {
+        slider.innerHTML = "<p>No images available.</p>";
+        specsDiv.innerHTML = "";
+      } else {
+        car.images.forEach((imgSrc, index) => {
+          const img = document.createElement("img");
+          img.src = imgSrc;
+          img.alt = carName + " image " + (index + 1);
+          img.addEventListener("click", () => openFullscreen(imgSrc));
+          slider.appendChild(img);
+        });
+
+        specsDiv.innerHTML = `
+          <p><strong>Year:</strong> ${car.specs.year}</p>
+          <p><strong>Transmission:</strong> ${car.specs.transmission}</p>
+          <p><strong>Fuel:</strong> ${car.specs.fuel}</p>
+          <p><strong>Seats:</strong> ${car.specs.seats}</p>
+          <p><strong>Features:</strong> ${car.specs.features}</p>
+        `;
+      }
+
+      // Store the current car name for the Rent/Buy buttons
+      modal.dataset.currentCar = carName;
+
+      modal.style.display = "flex";
+    }
+
+    function closeCarModal() {
+      document.getElementById("carModal").style.display = "none";
+    }
+
+    function openFullscreen(src) {
+      const fullscreenModal = document.getElementById("fullscreenModal");
+      const fullscreenImg = document.getElementById("fullscreenImg");
+      fullscreenImg.src = src;
+      fullscreenModal.style.display = "flex";
+    }
+
+    function goToRentForm() {
+      const modal = document.getElementById("carModal");
+      const carName = modal.dataset.currentCar;
+      // Redirect with car info or open rent-form.html
+      // You can pass carName in URL if needed: rent-form.html?car=...
+      alert(`Proceed to rent form for: ${carName}`);
+      // window.location.href = "rent-form.html?car=" + encodeURIComponent(carName);
+    }
+
+    function goToBuyForm() {
+      const modal = document.getElementById("carModal");
+      const carName = modal.dataset.currentCar;
+      alert(`Proceed to buy form for: ${carName}`);
+      // window.location.href = "buy-form.html?car=" + encodeURIComponent(carName);
+    }
+
+    const carBoxes = document.querySelectorAll(".car-box");
+  const searchBox = document.getElementById("searchBox");
+  const filterButtons = document.querySelectorAll(".filter-buttons button");
+  let currentMakeFilter = "all";
+
+  function filterCars() {
+    const query = searchBox.value.toLowerCase();
+    let anyVisible = false;
+
+    carBoxes.forEach(car => {
+      const name = car.textContent.toLowerCase();
+      const make = car.getAttribute('data-make');
+
+      const matchesSearch = name.includes(query);
+      const matchesMake = (currentMakeFilter === 'all' || make === currentMakeFilter);
+
+      if ((matchesSearch && matchesMake) && (currentMakeFilter !== 'all' || query !== '')) {
+        car.style.display = "inline-block";
+        anyVisible = true;
+      } else {
+        car.style.display = "none";
+      }
+    });
+
+    const noCarsMessage = document.getElementById("noCarsMessage");
+    if (anyVisible) {
+      noCarsMessage.style.display = "none";
+    } else {
+      noCarsMessage.style.display = "block";
+    }
+  }
+
+  // Event listener for search input
+  searchBox.addEventListener("input", filterCars);
+
+  // Event listeners for each make button
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Remove active class from all
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+
+      // Add active to current button
+      button.classList.add("active");
+
+      currentMakeFilter = button.getAttribute("data-make");
+      filterCars();
+    });
+  });
+
+  // Initially hide all cars
+  carBoxes.forEach(car => {
+    car.style.display = "none";
+  });
+  </script>
+  
+</body>
+  <!-- Script -->
+ <script>
+
+
+    window.addEventListener("DOMContentLoaded", () => {
+    const today = new Date().getDay(); // 0 = Sunday
+    if (today === 0) {
+      const banner = document.getElementById('sundayBanner');
+      document.body.classList.add('banner-visible');
+      banner.style.display = 'block';
+      setTimeout(() => {
+        banner.style.top = '0';
+      }, 100); // delay to trigger transition
+    }
+  });
+  const nav = document.getElementById("mainNav");
+  const disabledSections = ["booking", "About"];
+
+  function isInDisabledSection() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    return disabledSections.some(id => {
+      const section = document.getElementById(id);
+      if (!section) return false;
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+
+      return scrollY + windowHeight / 2 >= top && scrollY + windowHeight / 2 < bottom;
+    });
+  }
+
+  function toggleNav() {
+    if (isInDisabledSection()) {
+      nav.style.pointerEvents = "none"; // make nav unclickable
+      nav.style.opacity = "0.1";        // visually show it's disabled
+    } else {
+      nav.style.pointerEvents = "auto";
+      nav.style.opacity = "1";
+    }
+  }
+   const link = document.querySelector('a[href^="mailto:"]');
+  link.addEventListener('click', () => {
+    console.log("Email link clicked!");
+  });
+
+  // Check on scroll and load
+  window.addEventListener("scroll", toggleNav);
+  window.addEventListener("load", toggleNav);
+
+  // Check again shortly after clicking any link (to catch jump-to-section)
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", () => {
+      setTimeout(toggleNav, 400);
+    });
+  });
+     function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('booking-form-wrapper').style.display = 'none';
+  }
+
+  function bookNow(carName) {
+    showSection('cars');
+    document.getElementById('car').value = carName;
+    document.getElementById('booking-form-wrapper').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('booking-form-wrapper').offsetTop, behavior: 'smooth' });
+  }
+
+    
+  document.getElementById('booking-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Thank you! Your booking request has been submitted.');
+    this.reset();
+    document.getElementById('booking-form-wrapper').style.display = 'none';
+  });
+
+  function closeBooking() {
+    const confirmCancel = confirm("Are you sure you want to cancel the booking?");
+    if (!confirmCancel) return; // Do nothing if user clicks "Cancel"
+
+    const form = document.getElementById('booking-form');
+    const wrapper = document.getElementById('booking-form-wrapper');
+
+    if (form && wrapper) {
+      form.reset();
+      wrapper.style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  function scrollSlider(id, direction) {
+    const slider = document.getElementById(id);
+    const scrollAmount = 420; // width + margin of each image
+    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+
+ 
+
+   function showConfirmation(event) {
+    event.preventDefault(); // Prevent actual submission for testing
+    const form = event.target;
+    form.style.display = "none";
+    document.getElementById("thanks").style.display = "block";
+
+    // If you want to actually send email, uncomment this:
+    form.submit();
+  }
+  function openTab(tabId) {
+      // Hide all tab content
+      document.querySelectorAll('.tab-content').forEach((tab) => {
+        tab.classList.add('hidden');
+      });
+
+      // Show the selected tab
+      document.getElementById(tabId).classList.remove('hidden');
+
+      // Reset all tab texts to gray
+      document.querySelectorAll('.tab-text').forEach((tab) => {
+        tab.classList.remove('text-green-600');
+        tab.classList.add('text-gray-600');
+      });
+
+      // Highlight the active tab
+      const tabs = document.querySelectorAll('.tab-text');
+      tabs.forEach(tab => {
+        if (tab.textContent.trim().toLowerCase() === tabId) {
+          tab.classList.remove('text-gray-600');
+          tab.classList.add('text-green-600');
+        }
+      });
+    }
+function toggleCarsSection(show) {
+    const carsSection = document.getElementById("cars");
+    carsSection.style.display = show ? "block" : "none";
+  }
+    // Show Overview tab on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      openTab('overview');
+    });
+
+     function updateWorkingStatus() {
+    const section = document.getElementById("working-hours");
+    const statusElement = document.getElementById("status");
+
+    const now = new Date();
+
+    // Convert to Rwanda Time (UTC+2)
+    const rwandaOffset = 2 * 60; // +2 hours
+    const localUTC = now.getTime() + now.getTimezoneOffset() * 60000;
+    const rwandaTime = new Date(localUTC + rwandaOffset * 60000);
+
+    const day = rwandaTime.getDay(); // 0 = Sunday
+    const hour = rwandaTime.getHours();
+    const minute = rwandaTime.getMinutes();
+
+    if (day === 0) {
+      // Sunday message
+      statusElement.innerHTML = `
+        <span class="w-3 h-3 rounded-full bg-yellow-500 animate-pulse inline-block"></span>
+        <span class="text-yellow-500"> <strong>HAPPY SUNDAY</strong> </span>
+      `;
+      return;
+    }
+
+    // Monday to Saturday
+    const isOpen = hour >= 8 && (hour < 18 || (hour === 18 && minute === 0));
+
+    if (isOpen) {
+      statusElement.innerHTML = `
+        <span class="w-3 h-3 rounded-full bg-green-400 animate-pulse inline-block"></span>
+        <span class="text-green-300">We are <strong>OPEN</strong> now</span>
+      `;
+    } else {
+      statusElement.innerHTML = `
+        <span class="w-3 h-3 rounded-full bg-red-700 animate-pulse inline-block"></span>
+        <span class="text-red-700">We are <strong>CLOSED</strong> now</span>
+      `;
+    }
+  }
+
+  updateWorkingStatus();
+  setInterval(updateWorkingStatus, 30000);
+  
+ const tabs = document.querySelectorAll(".tab-text");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+    });
+  });
+  </script>
+
+
