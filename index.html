@@ -1,6 +1,4 @@
-                            
-
-<!-- Include in <head> -->
+      
 <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>About Us Modal with Tabs</title>
@@ -29,11 +27,11 @@
       border-radius: 6px;
       border: 1px solid #ccc;
     }
-
+ 
     .filter-buttons {
       margin-bottom: 15px;
     }
-
+ 
     .filter-buttons button {
       margin-right: 8px;
       margin-bottom: 8px;
@@ -45,7 +43,7 @@
       border-radius: 5px;
       transition: all 0.3s ease;
     }
-
+ 
     .filter-buttons button.active,
     .filter-buttons button:hover {
       background-color: #007bff;
@@ -63,17 +61,17 @@
       cursor: pointer;
       transition: transform 0.3s;
     }
-
+ 
     .car-box:hover {
       transform: scale(1.05);
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
-
+ 
     /* Hidden class for filtering */
     .hidden {
       display: none !important;
     }
-
+ 
     .modal, .fullscreen-modal {
       display: none;
       position: fixed;
@@ -84,7 +82,7 @@
       align-items: center;
       z-index: 1000;
     }
-
+ 
     .modal-content {
       background: white;
       max-width: 90%;
@@ -95,7 +93,7 @@
       overflow-y: auto;
       box-sizing: border-box;
     }
-
+ 
     .close-btn {
       position: absolute;
       top: 10px; right: 15px;
@@ -103,7 +101,7 @@
       cursor: pointer;
       color: red;
     }
-
+ 
     .slider {
       display: flex;
       gap: 10px;
@@ -111,7 +109,7 @@
       margin-bottom: 15px;
       padding-bottom: 5px;
     }
-
+ 
     .slider img {
       width: 150px;
       height: 100px;
@@ -122,22 +120,22 @@
       border: 2px solid transparent;
       transition: border-color 0.3s;
     }
-
+ 
     .slider img:hover {
       border-color: #007bff;
     }
-
+ 
     .specs {
       font-size: 14px;
     }
-
+ 
     .fullscreen-img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-
+ 
     #sundayBanner {
     display: none;
     position: fixed;
@@ -158,7 +156,7 @@
   }
    body {
       font-family:'Poppins', sans-serif; 
-
+ 
     }
   :root {
     --bg-color: #fff;
@@ -170,11 +168,11 @@
    #cars {
     transition: opacity 0.3s ease;
   }
-
+ 
   #cars[style*="display: none"] {
     opacity: 0;
   }
-
+ 
   #cars[style*="display: block"] {
     opacity: 1;
   }
@@ -273,7 +271,7 @@
     color: var(--btn-text);
     border: none;
     border-radius: 5px;
-
+ 
 }
 .buy-now-button {
       display: inline-flex;
@@ -296,7 +294,7 @@
     .buy-now-button i {
       margin-right: 10px;
     }
-
+ 
     .buy-now-button:hover {
       background-color: #e69500;
     }
@@ -307,13 +305,13 @@
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
     }
-
+ 
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #f9f9f9;
   }
-
+ 
   nav {
     background-color: #2c3e50;
     padding: 10px 20px;
@@ -325,18 +323,18 @@
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0,0,0,0.9);
   }
-
+ 
   nav a {
     text-decoration: none;
     color: white;
     font-weight: 600;
     transition: color 0.3s;
   }
-
+ 
   nav a:hover {
     color: #ff9900;
   }
-
+ 
   #home {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
       url('https://i.imgur.com/HeDGSHg.jpg?auto=format&fit=crop&w=1950&q=80') no-repeat center center / cover;
@@ -347,32 +345,32 @@
     transform: translateY(20px);
     animation: fadeInUp 1.2s ease-out forwards;
   }
-
+ 
   @keyframes fadeInUp {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
+ 
   #home h2 {
     font-size: 42px;
     margin-bottom: 20px;
   }
-
+ 
   #home p {
     font-size: 18px;
     margin: 0 auto 40px;
     max-width: 650px;
   }
-
+ 
   .home-buttons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
   }
-
+ 
   .home-buttons a {
     display: inline-flex;
     align-items: center;
@@ -385,34 +383,34 @@
     text-decoration: none;
     transition: background 0.3s ease;
   }
-
+ 
   .home-buttons a:hover {
     background-color: #e68a00;
   }
-
+ 
   .section {
     padding: 100px 20px;
     text-align: center;
   }
-
+ 
   .section h3 {
     font-size: 30px;
     margin-bottom: 20px;
   }
-
+ 
   .whatsapp-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
   }
-
+ 
   .whatsapp-button img {
     width: 56px;
     height: 56px;
     transition: transform 0.3s;
   }
-
+ 
   .whatsapp-button img:hover {
     transform: scale(1.1);
   }
@@ -424,27 +422,27 @@
     font-size: 14px;
     margin-top: 60px;
   }
-
+ 
   @media (max-width: 768px) {
     #home h2 {
       font-size: 28px;
     }
-
+ 
     #home p {
       font-size: 16px;
     }
-
+ 
     .home-buttons a {
       font-size: 14px;
       padding: 10px 20px;
     }
-
+ 
     nav {
       flex-wrap: wrap;
     
   }
 </style>
-
+ 
 <body>
 <header class="bg-black py-4 px-6 shadow-md">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
@@ -493,7 +491,7 @@
       margin-bottom: 20px;
       font-family: 'Poppins', sans-serif;
     ">Explore Our Cars</h1>
-
+ 
     <button onclick="toggleCarsSection(true)" style="
       display: inline-block;
       padding: 14px 28px;
@@ -513,7 +511,7 @@
  <section id="cars" class="section" style="display: none;">
   
   <input type="text" id="searchBox" placeholder="Search cars by name..." />
-
+ 
   <div class="filter-buttons">
     <button data-make="all" class="active">All</button>
     <button data-make="Hyundai">Hyundai</button>
@@ -537,7 +535,7 @@
   <div class="car-box" data-make="Toyota" onclick="openCarModal('Toyota Coaster')">Toyota Coaster</div>
   <div class="car-box" data-make="Mercedes Benz" onclick="openCarModal('Mercedes Benz c63 AMG')">Mercedes Benz c63 AMG</div>
   <div class="car-box" data-make="Mercedes Benz" onclick="openCarModal('Mercedes Benz GLE 350 4MATIC')">Mercedes Benz GLE 350 4MATIC</div>
-
+ 
   <!-- MODAL -->
   <div id="carModal" class="modal" onclick="if(event.target===this) closeCarModal()">
     <div class="modal-content">
@@ -547,7 +545,7 @@
       <div class="specs" id="carSpecs">
         <!-- Specifications will be inserted here -->
       </div>
-
+ 
       <!-- Action Buttons -->
       <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center;">
         <button onclick="goToRentForm()" style="padding: 10px 20px; background: green; color: white; border: none; border-radius: 8px; cursor: pointer;">Rent</button>
@@ -555,7 +553,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- FULLSCREEN IMAGE MODAL -->
   <div id="fullscreenModal" class="fullscreen-modal" onclick="this.style.display='none'">
     <img id="fullscreenImg" class="fullscreen-img" src="" alt="Full view" />
@@ -568,15 +566,15 @@
     </div>
 </section>
  <section id="order" class="section" style="background-color: #eef1f5;">  <body class="bg-gray-100 font-[Poppins,sans-serif]">
-
-
+ 
+ 
      <section
     class="relative bg-cover bg-center text-white"
     style="background-image: url('https://i.imgur.com/tZRUs0e.jpg'); height: 100vh;"
   >
     <!-- Overlay for readability -->
     <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-
+ 
     <!-- Content -->
     <div class="relative z-10 max-w-4xl mx-auto px-6 py-32">
       <h1 class="text-5xl font-bold leading-tight">
@@ -594,7 +592,7 @@
       Order Now →
     </a>
   </div>
-
+ 
   <!-- Modal -->
  <div
     id="aboutModal"
@@ -611,41 +609,41 @@
           > <strong>Order Form</strong> </span
         >
       </div>
-
+ 
       <!-- Tab Contents -->
-
+ 
       <!-- Overview Tab -->
       <div id="book" class="tab-content" style="color: black">
         <h3 style="text-align:center;">Order a Car from Abroad</h3>
   <p style="text-align:center;">Fill in the form below to request a car importation. We'll contact you shortly with available options and pricing.</p>
-
+ 
   <form action="https://formsubmit.co/kadosnziza@gmail.com" method="POST" style="max-width: 600px; margin: 30px auto; background: grey; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.9);" onsubmit="showConfirmation(event)">
     <!-- Hidden input to disable CAPTCHA and redirect -->
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="#thanks">
-
+ 
     <!-- Personal Info -->
     <div style="margin-bottom: 20px;">
       <label for="fullname">Full Name</label>
       <input type="text" id="fullname" name="Full Name" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
     </div>
-
+ 
     <div style="margin-bottom: 20px;">
       <label for="email">Email Address</label>
       <input type="email" id="email" name="Email" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
     </div>
-
+ 
     <div style="margin-bottom: 20px;">
       <label for="phone">Phone Number (WhatsApp Preferred)</label>
       <input type="tel" id="phone" name="Phone Number" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
     </div>
-
+ 
     <!-- Car Info -->
     <div style="margin-bottom: 20px;">
       <label for="carMake">Car Make & Model</label>
       <input type="text" id="carMake" name="Car Make and Model" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
     </div>
-
+ 
     <div style="margin-bottom: 20px;">
       <label for="carType">Car Type</label>
       <select id="carType" name="Car Type" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
@@ -658,7 +656,7 @@
         <option>Bus</option>
       </select>
     </div>
-
+ 
     <div style="margin-bottom: 20px;">
       <label for="country">Preferred Country to Import From</label>
       <select id="country" name="Import Country" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
@@ -671,7 +669,7 @@
         <option>United Arab Emirates</option>
       </select>
     </div>
-
+ 
     <div style="margin-bottom: 20px;">
       <label for="delivery">Preferred Delivery Method</label>
       <select id="delivery" name="Delivery Method" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
@@ -680,12 +678,12 @@
         <option>Door-to-Door Delivery (Rwanda)</option>
       </select>
     </div>
-
+ 
     <div style="margin-bottom: 20px;">
       <label for="notes">Additional Notes</label>
       <textarea id="notes" name="Additional Notes" rows="4" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
     </div>
-
+ 
     <!-- Submit -->
     <div style="text-align: center;">
       <button type="submit" style="background-color: #ff9900; color: white; border: none; padding: 14px 30px; border-radius: 8px; font-size: 16px; cursor: pointer;">
@@ -693,13 +691,13 @@
       </button>
     </div>
   </form>
-
+ 
   <!-- Confirmation Message -->
   <div id="thanks" style="display:none; text-align:center; margin-top:30px;">
     <h4 style="color: green;">✅ Your request has been submitted!</h4>
     <p>We will get back to you shortly via email or WhatsApp.</p>
   </div>
-
+ 
       </div>
       <!-- Close Button -->
       <div class="mt-6 text-right">
@@ -718,14 +716,14 @@
 <section id="About" class="section">
   <body class="bg-gray-100 font-[Poppins,sans-serif]">
 <body class="bg-gray-100">
-
+ 
      <section
     class="relative bg-cover bg-center text-white"
     style="background-image: url('https://i.imgur.com/1zRqcMB.jpg'); height: 100vh;"
   >
     <!-- Overlay for readability -->
     <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-
+ 
     <!-- Content -->
     <div class="relative z-10 max-w-4xl mx-auto px-6 py-32">
       <h1 class="text-5xl font-bold leading-tight">
@@ -743,7 +741,7 @@
       About Us →
     </a>
   </div>
-
+ 
   <!-- Modal -->
  <div
     id="aboutModal2"
@@ -765,16 +763,16 @@
           > <strong>Our Mission</strong> </span
         >
       </div>
-
+ 
       <!-- Tab Contents -->
-
+ 
       <!-- Overview Tab -->
       <div id="Our Services" class="tab-content">
         <h2 class="text-3xl font-bold mb-4 text-gray-900">Our Services</h2>
         <p class="text-gray-700 mb-8">
           We deliver, sell, and rent vehicles tailored to your needs — across borders or locally in Rwanda.
         </p>
-
+ 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Import & Delivery -->
           <div
@@ -788,7 +786,7 @@
               We help clients import vehicles from overseas markets like Japan, the USA, Korea or Europe. Our team handles everything from sourcing to delivery, ensuring a smooth, reliable experience.
             </p>
           </div>
-
+ 
           <!-- Local Sales -->
           <div
             class="bg-white p-6 rounded-xl shadow-md text-center"
@@ -801,7 +799,7 @@
               Browse our range of cars already available in Rwanda. All vehicles are inspected and ready to drive. We offer dependable cars for personal or business use.
             </p>
           </div>
-
+ 
           <!-- Rentals -->
           <div
             class="bg-white p-6 rounded-xl shadow-md text-center"
@@ -816,7 +814,7 @@
           </div>
         </div>
       </div>
-
+ 
       <!-- Our Mission Tab -->
       <div id="mission" class="tab-content hidden">
         <h2 class="text-3xl font-bold mb-4 text-gray-900">Our Mission</h2>
@@ -824,7 +822,7 @@
           At Kado Nziza, our mission is to simplify the car buying, renting, and importing experience in Rwanda by delivering trust, transparency, and convenience.
         </p>
       </div>
-
+ 
      
       <!-- Close Button -->
       <div class="mt-6 text-right">
@@ -859,13 +857,13 @@
      <form id="booking-form" action="https://formspree.io/f/xzzgkqrk" method="POST" style="max-width: 600px; margin: 0 auto; background: grey; padding: 30px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.9);">
       <label for="name">Full Name:</label>
       <input type="text" id="name" name="name" required />
-
+ 
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required />
-
+ 
       <label for="phone">Phone Number:</label>
       <input type="tel" id="phone" name="phone" required />
-
+ 
       <label for="car">Select Car:</label>
       <select id="car" name="car" required>
         <option value="">-- Choose a car --</option>
@@ -885,21 +883,21 @@
         <option value="Toyota Coaster 2012">Toyota Coaster 2012</option>
         <option value="Mercedes Benz c63 AMG">Mercedes Benz c63 AMG</option>
         <option value="Mercedes Benz GLE 350e 4MATIC">Mercedes Benz GLE 350e 4MATIC</option>
-
+ 
         
         </select>
-
+ 
       <label for="start-date">Rental Start Date:</label>
       <input type="date" id="start-date" name="start-date" required />
-
+ 
       <label for="end-date">Rental End Date:</label>
       <input type="date" id="end-date" name="end-date" required />
-
+ 
       <button type="submit">Submit Booking</button>
       <button type="button" onclick="closeBooking()">cancel</button>
     </form>
   </div>
-
+ 
   <!-- WhatsApp -->
   <a class="whatsapp-button" href="https://wa.me/250788883164" target="_blank" title="Chat with us on WhatsApp">
     <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" />
@@ -907,7 +905,7 @@
   <!-- Footer -->
   <footer class="text-white font-[Poppins,sans-serif] py-10 px-6 border-t border-gray-300 shadow-2xl" style="background-color: #2c3e50; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-
+ 
     <!-- Working Hours Section -->
     <div class="flex justify-center"></div>
 <div id="working-hours" class="text-white mt-8 p-4 bg-green-950 rounded-lg shadow-lg">
@@ -920,10 +918,10 @@
     <!-- Dynamic status here -->
   </p>
 </div>
-
-
+ 
+ 
   </div>
-
+ 
   <div class="mt-10 text-center text-gray-300 font-extrabold text-sm select-none">
     &copy; <strong>2025 Kado Nziza Car Trading Ltd. All rights reserved.</strong>
   </div>
@@ -1180,17 +1178,17 @@ const carData = {
         }
       }
     };
-
+ 
  function openCarModal(carName) {
       const modal = document.getElementById("carModal");
       const slider = document.getElementById("imageSlider");
       const title = document.getElementById("carTitle");
       const specsDiv = document.getElementById("carSpecs");
-
+ 
       title.textContent = carName;
       slider.innerHTML = "";
       const car = carData[carName];
-
+ 
       if (!car) {
         slider.innerHTML = "<p>No images available.</p>";
         specsDiv.innerHTML = "";
@@ -1202,7 +1200,7 @@ const carData = {
           img.addEventListener("click", () => openFullscreen(imgSrc));
           slider.appendChild(img);
         });
-
+ 
         specsDiv.innerHTML = `
           <p><strong>Year:</strong> ${car.specs.year}</p>
           <p><strong>Transmission:</strong> ${car.specs.transmission}</p>
@@ -1211,24 +1209,24 @@ const carData = {
           <p><strong>Features:</strong> ${car.specs.features}</p>
         `;
       }
-
+ 
       // Store the current car name for the Rent/Buy buttons
       modal.dataset.currentCar = carName;
-
+ 
       modal.style.display = "flex";
     }
-
+ 
     function closeCarModal() {
       document.getElementById("carModal").style.display = "none";
     }
-
+ 
     function openFullscreen(src) {
       const fullscreenModal = document.getElementById("fullscreenModal");
       const fullscreenImg = document.getElementById("fullscreenImg");
       fullscreenImg.src = src;
       fullscreenModal.style.display = "flex";
     }
-
+ 
     function goToRentForm() {
       const modal = document.getElementById("carModal");
       const carName = modal.dataset.currentCar;
@@ -1237,30 +1235,30 @@ const carData = {
       alert(`Proceed to rent form for: ${carName}`);
       // window.location.href = "rent-form.html?car=" + encodeURIComponent(carName);
     }
-
+ 
     function goToBuyForm() {
       const modal = document.getElementById("carModal");
       const carName = modal.dataset.currentCar;
       alert(`Proceed to buy form for: ${carName}`);
       // window.location.href = "buy-form.html?car=" + encodeURIComponent(carName);
     }
-
+ 
     const carBoxes = document.querySelectorAll(".car-box");
   const searchBox = document.getElementById("searchBox");
   const filterButtons = document.querySelectorAll(".filter-buttons button");
   let currentMakeFilter = "all";
-
+ 
   function filterCars() {
     const query = searchBox.value.toLowerCase();
     let anyVisible = false;
-
+ 
     carBoxes.forEach(car => {
       const name = car.textContent.toLowerCase();
       const make = car.getAttribute('data-make');
-
+ 
       const matchesSearch = name.includes(query);
       const matchesMake = (currentMakeFilter === 'all' || make === currentMakeFilter);
-
+ 
       if ((matchesSearch && matchesMake) && (currentMakeFilter !== 'all' || query !== '')) {
         car.style.display = "inline-block";
         anyVisible = true;
@@ -1268,7 +1266,7 @@ const carData = {
         car.style.display = "none";
       }
     });
-
+ 
     const noCarsMessage = document.getElementById("noCarsMessage");
     if (anyVisible) {
       noCarsMessage.style.display = "none";
@@ -1276,24 +1274,24 @@ const carData = {
       noCarsMessage.style.display = "block";
     }
   }
-
+ 
   // Event listener for search input
   searchBox.addEventListener("input", filterCars);
-
+ 
   // Event listeners for each make button
   filterButtons.forEach(button => {
     button.addEventListener("click", () => {
       // Remove active class from all
       filterButtons.forEach(btn => btn.classList.remove("active"));
-
+ 
       // Add active to current button
       button.classList.add("active");
-
+ 
       currentMakeFilter = button.getAttribute("data-make");
       filterCars();
     });
   });
-
+ 
   // Initially hide all cars
   carBoxes.forEach(car => {
     car.style.display = "none";
@@ -1303,8 +1301,8 @@ const carData = {
 </body>
   <!-- Script -->
  <script>
-
-
+ 
+ 
     window.addEventListener("DOMContentLoaded", () => {
     const today = new Date().getDay(); // 0 = Sunday
     if (today === 0) {
@@ -1318,21 +1316,21 @@ const carData = {
   });
   const nav = document.getElementById("mainNav");
   const disabledSections = ["booking", "About"];
-
+ 
   function isInDisabledSection() {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
-
+ 
     return disabledSections.some(id => {
       const section = document.getElementById(id);
       if (!section) return false;
       const top = section.offsetTop;
       const bottom = top + section.offsetHeight;
-
+ 
       return scrollY + windowHeight / 2 >= top && scrollY + windowHeight / 2 < bottom;
     });
   }
-
+ 
   function toggleNav() {
     if (isInDisabledSection()) {
       nav.style.pointerEvents = "none"; // make nav unclickable
@@ -1346,11 +1344,11 @@ const carData = {
   link.addEventListener('click', () => {
     console.log("Email link clicked!");
   });
-
+ 
   // Check on scroll and load
   window.addEventListener("scroll", toggleNav);
   window.addEventListener("load", toggleNav);
-
+ 
   // Check again shortly after clicking any link (to catch jump-to-section)
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", () => {
@@ -1362,14 +1360,14 @@ const carData = {
     document.getElementById(id).classList.add('active');
     document.getElementById('booking-form-wrapper').style.display = 'none';
   }
-
+ 
   function bookNow(carName) {
     showSection('cars');
     document.getElementById('car').value = carName;
     document.getElementById('booking-form-wrapper').style.display = 'block';
     window.scrollTo({ top: document.getElementById('booking-form-wrapper').offsetTop, behavior: 'smooth' });
   }
-
+ 
     
   document.getElementById('booking-form').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1377,35 +1375,35 @@ const carData = {
     this.reset();
     document.getElementById('booking-form-wrapper').style.display = 'none';
   });
-
+ 
   function closeBooking() {
     const confirmCancel = confirm("Are you sure you want to cancel the booking?");
     if (!confirmCancel) return; // Do nothing if user clicks "Cancel"
-
+ 
     const form = document.getElementById('booking-form');
     const wrapper = document.getElementById('booking-form-wrapper');
-
+ 
     if (form && wrapper) {
       form.reset();
       wrapper.style.display = 'none';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
-
+ 
   function scrollSlider(id, direction) {
     const slider = document.getElementById(id);
     const scrollAmount = 420; // width + margin of each image
     slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
   }
-
  
-
+ 
+ 
    function showConfirmation(event) {
     event.preventDefault(); // Prevent actual submission for testing
     const form = event.target;
     form.style.display = "none";
     document.getElementById("thanks").style.display = "block";
-
+ 
     // If you want to actually send email, uncomment this:
     form.submit();
   }
@@ -1414,16 +1412,16 @@ const carData = {
       document.querySelectorAll('.tab-content').forEach((tab) => {
         tab.classList.add('hidden');
       });
-
+ 
       // Show the selected tab
       document.getElementById(tabId).classList.remove('hidden');
-
+ 
       // Reset all tab texts to gray
       document.querySelectorAll('.tab-text').forEach((tab) => {
         tab.classList.remove('text-green-600');
         tab.classList.add('text-gray-600');
       });
-
+ 
       // Highlight the active tab
       const tabs = document.querySelectorAll('.tab-text');
       tabs.forEach(tab => {
@@ -1441,22 +1439,22 @@ function toggleCarsSection(show) {
     document.addEventListener("DOMContentLoaded", () => {
       openTab('overview');
     });
-
+ 
      function updateWorkingStatus() {
     const section = document.getElementById("working-hours");
     const statusElement = document.getElementById("status");
-
+ 
     const now = new Date();
-
+ 
     // Convert to Rwanda Time (UTC+2)
     const rwandaOffset = 2 * 60; // +2 hours
     const localUTC = now.getTime() + now.getTimezoneOffset() * 60000;
     const rwandaTime = new Date(localUTC + rwandaOffset * 60000);
-
+ 
     const day = rwandaTime.getDay(); // 0 = Sunday
     const hour = rwandaTime.getHours();
     const minute = rwandaTime.getMinutes();
-
+ 
     if (day === 0) {
       // Sunday message
       statusElement.innerHTML = `
@@ -1465,10 +1463,10 @@ function toggleCarsSection(show) {
       `;
       return;
     }
-
+ 
     // Monday to Saturday
     const isOpen = hour >= 8 && (hour < 18 || (hour === 18 && minute === 0));
-
+ 
     if (isOpen) {
       statusElement.innerHTML = `
         <span class="w-3 h-3 rounded-full bg-green-400 animate-pulse inline-block"></span>
@@ -1481,7 +1479,7 @@ function toggleCarsSection(show) {
       `;
     }
   }
-
+ 
   updateWorkingStatus();
   setInterval(updateWorkingStatus, 30000);
   
