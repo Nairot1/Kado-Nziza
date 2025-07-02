@@ -508,7 +508,19 @@
   </div>
 </section>
   <!-- Placeholder Sections -->
- <section id="cars" class="section" style="display: none;">
+ <section id="cars" class="section" style="
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  color: bg-black;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 30px;
+">
   
   <input type="text" id="searchBox" placeholder="Search cars by name..." />
  
@@ -561,9 +573,18 @@
     <div id="noCarsMessage" style="text-align:center; margin-top:20px; font-size:18px; color:gray;">
   Please select a car make or search above to view available cars.
 </div>    
-<div>
-<button onclick="toggleCarsSection(false)" style="margin-top: 20px;">Close</button> 
-    </div>
+<div style="text-align:center;">
+  <button onclick="toggleCarsSection(false)" style="
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  ">Close</button> 
+</div>
 </section>
  <section id="order" class="section" style="background-color: #eef1f5;">  <body class="bg-gray-100 font-[Poppins,sans-serif]">
  
@@ -1490,6 +1511,11 @@ function toggleCarsSection(show) {
       tab.classList.add("active");
     });
   });
+        function toggleCarsSection(show) {
+    const section = document.getElementById("cars");
+    section.style.display = show ? "block" : "none";
+  }
+
   </script>
 
 
